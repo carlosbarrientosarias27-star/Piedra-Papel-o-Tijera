@@ -176,7 +176,10 @@ def jugar():
         jugador = obtener_opcion_valida()
 
         if jugador == "0":
-            break
+            break 
+
+        print("\n💻 La computadora está eligiendo...")
+        time.sleep(2) 
 
         computadora = obtener_eleccion_computadora()
         resultado = determinar_ganador(jugador, computadora)
