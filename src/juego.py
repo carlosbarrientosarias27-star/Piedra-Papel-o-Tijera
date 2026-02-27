@@ -110,3 +110,47 @@ jugada_jugador = obtener_jugada()
 print(f"Has elegido: {jugada_jugador}") 
 
 
+import random
+
+opciones = ["piedra", "papel", "tijera"]
+
+victorias = 0
+derrotas = 0
+empates = 0
+
+while True:
+    usuario = input("Elige piedra, papel o tijera (o salir): ").lower()
+    
+    if usuario == "salir":
+        print("Juego terminado 👋")
+        break
+    
+    if usuario not in opciones:
+        print("Opción inválida.")
+        continue
+
+    computadora = random.choice(opciones)
+    print(f"La computadora eligió: {computadora}")
+
+    if usuario == computadora:
+        print("¡Es un empate!")
+        empates += 1
+
+    elif (usuario == "piedra" and computadora == "tijera") or \
+         (usuario == "papel" and computadora == "piedra") or \
+         (usuario == "tijera" and computadora == "papel"):
+        print("¡Ganaste!")
+        victorias += 1
+
+    else:
+        print("Perdiste...")
+        derrotas += 1
+
+    print("\n📊 Marcador actual:")
+    print(f"Victorias: {victorias}")
+    print(f"Derrotas: {derrotas}")
+    print(f"Empates: {empates}")
+    print("-" * 20)
+
+
+    
