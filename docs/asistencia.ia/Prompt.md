@@ -23,7 +23,7 @@ Juego Piedra, Papel o Tijera en Python
 ### Prompt 6
 "Mejorar la interfaz visual del juego en consola usando emojis y formato atractivo"
 
-## Mejoras implementadas gracias a IA
+# Mejoras implementadas gracias a IA
 
 - Validación de entradas del usuario
 - Sistema de rondas múltiples
@@ -33,5 +33,5 @@ Juego Piedra, Papel o Tijera en Python
 - Interfaz mejorada con emojis
 - Limpieza de pantalla para mejor experiencia
 
-## Herramienta utilizada
+# Herramienta utilizada
 ChatGPT (modelo de lenguaje basado en IA)
