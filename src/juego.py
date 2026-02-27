@@ -230,4 +230,89 @@ if __name__ == "__main__":
     jugar()
 
 
+import os
+import random
+import time
+
+# Diccionario con opciones y emojis
+opciones = {
+    "1": ("Piedra", "🪨"),
+    "2": ("Papel", "📄"),
+    "3": ("Tijera", "✂️")
+}
+
+def limpiar_pantalla():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def mostrar_bienvenida():
+    limpiar_pantalla()
+    print("=" * 40)
+    print("🎮  BIENVENIDO A PIEDRA, PAPEL O TIJERA  🎮")
+    print("=" * 40)
+    print("\n📜 Reglas del juego:")
+    print("🪨 Piedra vence a ✂️ Tijera")
+    print("📄 Papel vence a 🪨 Piedra")
+    print("✂️ Tijera vence a 📄 Papel")
+    print("\nElige una opción:")
+    print("1 - 🪨 Piedra")
+    print("2 - 📄 Papel")
+    print("3 - ✂️ Tijera")
+    print("0 - Salir")
+    print("=" * 40)
+    input("\nPresiona ENTER para comenzar...")
+
+def determinar_ganador(jugador, computadora):
+    if jugador == computadora:
+        return "Empate 🤝"
     
+    if (
+        (jugador == "1" and computadora == "3") or
+        (jugador == "2" and computadora == "1") or
+        (jugador == "3" and computadora == "2")
+    ):
+        return "¡Ganaste! 🎉"
+    else:
+        return "Perdiste 😢"
+
+def jugar():
+    while True:
+        limpiar_pantalla()
+        print("=" * 40)
+        print("🎮  PIEDRA - PAPEL - TIJERA  🎮")
+        print("=" * 40)
+        print("1 - 🪨 Piedra")
+        print("2 - 📄 Papel")
+        print("3 - ✂️ Tijera")
+        print("0 - Salir")
+        print("=" * 40)
+
+        jugador = input("👉 Elige una opción: ")
+
+        if jugador == "0":
+            print("\nGracias por jugar 👋")
+            break
+
+        if jugador not in opciones:
+            print("\n⚠️ Opción inválida")
+            time.sleep(1.5)
+            continue
+
+        computadora = random.choice(list(opciones.keys()))
+
+        limpiar_pantalla()
+        print("=" * 40)
+        print("🎲 RESULTADO DE LA RONDA")
+        print("=" * 40)
+
+        print(f"\n👤 Tú elegiste: {opciones[jugador][1]} {opciones[jugador][0]}")
+        print(f"💻 Computadora eligió: {opciones[computadora][1]} {opciones[computadora][0]}")
+
+        resultado = determinar_ganador(jugador, computadora)
+        print(f"\n🏆 Resultado: {resultado}")
+
+        print("\n" + "=" * 40)
+        input("Presiona ENTER para continuar...")
+
+# Ejecutar juego
+mostrar_bienvenida()
+jugar()
