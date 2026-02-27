@@ -84,3 +84,29 @@ if __name__ == "__main__":
     print(f"\nJugador eligió: {jugador}")
     print(f"Computadora eligió: {computadora}")
     print(f"Resultado: {resultado}")
+
+
+    def obtener_jugada():
+     while True:
+        try:
+            print("Elige una opción:")
+            print("1 - Piedra")
+            print("2 - Papel")
+            print("3 - Tijera")
+            
+            opcion = int(input("Introduce 1, 2 o 3: "))
+
+            if opcion in [1, 2, 3]:
+                return opcion
+            else:
+                print("❌ Error: Debes introducir solo 1, 2 o 3.\n")
+
+        except ValueError:
+            print("❌ Error: Debes introducir un número válido.\n")
+
+
+# Uso de la función
+jugada_jugador = obtener_jugada()
+print(f"Has elegido: {jugada_jugador}") 
+
+
