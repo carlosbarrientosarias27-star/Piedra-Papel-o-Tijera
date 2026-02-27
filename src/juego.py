@@ -31,4 +31,16 @@ mostrar_opciones()
 eleccion_numero = obtener_eleccion_jugador()
 eleccion_nombre = convertir_eleccion(eleccion_numero)
 
-print(f"Has elegido: {eleccion_nombre}")
+print(f"Has elegido: {eleccion_nombre}") 
+
+import random
+
+def eleccion_computadora():
+    opciones = ["piedra", "papel", "tijera"]
+    return random.choice(opciones)
+
+# Generar elección
+computadora = eleccion_computadora()
+
+# Mostrar elección por pantalla
+print("La computadora eligió:", computadora) 
