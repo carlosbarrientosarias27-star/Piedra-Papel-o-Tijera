@@ -33,6 +33,7 @@ eleccion_nombre = convertir_eleccion(eleccion_numero)
 
 print(f"Has elegido: {eleccion_nombre}") 
 
+
 import random
 
 def eleccion_computadora():
@@ -44,3 +45,42 @@ computadora = eleccion_computadora()
 
 # Mostrar elección por pantalla
 print("La computadora eligió:", computadora) 
+
+
+def determinar_ganador(jugador, computadora):
+    """
+    Compara la elección del jugador con la de la computadora
+    y devuelve el resultado: 'Victoria', 'Derrota' o 'Empate'
+    """
+
+    # Normalizamos texto
+    jugador = jugador.lower()
+    computadora = computadora.lower()
+
+    if jugador == computadora:
+        return "Empate"
+
+    elif (
+        (jugador == "piedra" and computadora == "tijera") or
+        (jugador == "tijera" and computadora == "papel") or
+        (jugador == "papel" and computadora == "piedra")
+    ):
+        return "Victoria"
+
+    else:
+        return "Derrota"
+
+
+# Ejemplo de uso
+if __name__ == "__main__":
+    jugador = input("Elige piedra, papel o tijera: ")
+    
+    import random
+    opciones = ["piedra", "papel", "tijera"]
+    computadora = random.choice(opciones)
+
+    resultado = determinar_ganador(jugador, computadora)
+
+    print(f"\nJugador eligió: {jugador}")
+    print(f"Computadora eligió: {computadora}")
+    print(f"Resultado: {resultado}")
