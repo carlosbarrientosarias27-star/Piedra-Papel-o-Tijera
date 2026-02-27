@@ -253,28 +253,27 @@ def mostrar_bienvenida():
     print("🪨 Piedra vence a ✂️ Tijera")
     print("📄 Papel vence a 🪨 Piedra")
     print("✂️ Tijera vence a 📄 Papel")
-    print("\nElige una opción:")
-    print("1 - 🪨 Piedra")
-    print("2 - 📄 Papel")
-    print("3 - ✂️ Tijera")
-    print("0 - Salir")
     print("=" * 40)
     input("\nPresiona ENTER para comenzar...")
 
 def determinar_ganador(jugador, computadora):
     if jugador == computadora:
-        return "Empate 🤝"
+        return "empate"
     
     if (
         (jugador == "1" and computadora == "3") or
         (jugador == "2" and computadora == "1") or
         (jugador == "3" and computadora == "2")
     ):
-        return "¡Ganaste! 🎉"
+        return "jugador"
     else:
-        return "Perdiste 😢"
+        return "computadora"
 
 def jugar():
+    victorias = 0
+    derrotas = 0
+    empates = 0
+
     while True:
         limpiar_pantalla()
         print("=" * 40)
@@ -289,7 +288,6 @@ def jugar():
         jugador = input("👉 Elige una opción: ")
 
         if jugador == "0":
-            print("\nGracias por jugar 👋")
             break
 
         if jugador not in opciones:
@@ -299,20 +297,54 @@ def jugar():
 
         computadora = random.choice(list(opciones.keys()))
 
-        limpiar_pantalla()
-        print("=" * 40)
-        print("🎲 RESULTADO DE LA RONDA")
-        print("=" * 40)
-
+        print("\n🎲 RESULTADO DE LA RONDA")
         print(f"\n👤 Tú elegiste: {opciones[jugador][1]} {opciones[jugador][0]}")
         print(f"💻 Computadora eligió: {opciones[computadora][1]} {opciones[computadora][0]}")
 
         resultado = determinar_ganador(jugador, computadora)
-        print(f"\n🏆 Resultado: {resultado}")
 
-        print("\n" + "=" * 40)
-        input("Presiona ENTER para continuar...")
+        if resultado == "jugador":
+            print("\n🏆 ¡Ganaste la ronda!")
+            victorias += 1
+        elif resultado == "computadora":
+            print("\n💻 La computadora ganó la ronda.")
+            derrotas += 1
+        else:
+            print("\n🤝 ¡Es un empate!")
+            empates += 1
+
+        input("\nPresiona ENTER para continuar...")
+
+    # === RESUMEN FINAL ===
+    total_partidas = victorias + derrotas + empates
+
+    if total_partidas > 0:
+        porcentaje_victorias = (victorias / total_partidas) * 100
+    else:
+        porcentaje_victorias = 0
+
+    limpiar_pantalla()
+    print("=" * 40)
+    print("📊 RESUMEN FINAL DE LA PARTIDA")
+    print("=" * 40)
+    print(f"🏆 Victorias: {victorias}")
+    print(f"💻 Derrotas: {derrotas}")
+    print(f"🤝 Empates: {empates}")
+    print(f"📈 Porcentaje de victorias: {porcentaje_victorias:.2f}%")
+    print("=" * 40)
+
+    # Determinar ganador final
+    if victorias > derrotas:
+        print("🎉 ¡ERES EL GANADOR FINAL!")
+    elif derrotas > victorias:
+        print("💻 LA COMPUTADORA ES LA GANADORA FINAL.")
+    else:
+        print("🤝 LA PARTIDA TERMINÓ EN EMPATE GENERAL.")
+
+    print("=" * 40)
 
 # Ejecutar juego
 mostrar_bienvenida()
 jugar()
+
+
