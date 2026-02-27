@@ -11,10 +11,12 @@
 ✔ Docstrings en todas las funciones
 
 # 🧪 Casos Edge Probados
-Entrada	        Resultado
-""	            Mensaje de campo vacío
-"abc"	        Opción inválida
--1	            Número negativo no permitido
-"9"	            Fuera de rango
-"0"	            Sale correctamente
-Ctrl + C	    (Interrupción manual del sistema)
+
+| Entrada    | Resultado                         |
+|------------|-----------------------------------|
+| `""`       | Mensaje de campo vacío            |
+| `"abc"`    | Opción inválida                   |
+| `-1`       | Número negativo no permitido      |
+| `"9"`      | Fuera de rango                    |
+| `"0"`      | Sale correctamente                |
+| `Ctrl + C` | (Interrupción manual del sistema) |
