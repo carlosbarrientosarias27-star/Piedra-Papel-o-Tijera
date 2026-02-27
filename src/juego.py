@@ -153,4 +153,78 @@ while True:
     print("-" * 20)
 
 
-    
+    import random
+
+def obtener_rondas():
+    while True:
+        try:
+            rondas = int(input("¿Cuántas rondas quieres jugar? "))
+            if rondas > 0:
+                return rondas
+            else:
+                print("⚠️ Debes ingresar un número entero positivo.")
+        except ValueError:
+            print("⚠️ Entrada inválida. Debes ingresar un número entero.")
+
+def obtener_jugada_jugador():
+    opciones = ["piedra", "papel", "tijera"]
+    while True:
+        jugada = input("Elige piedra, papel o tijera: ").lower()
+        if jugada in opciones:
+            return jugada
+        else:
+            print("⚠️ Opción inválida. Intenta nuevamente.")
+
+def obtener_jugada_maquina():
+    return random.choice(["piedra", "papel", "tijera"])
+
+def determinar_ganador(jugador, maquina):
+    if jugador == maquina:
+        return "empate"
+    elif (
+        (jugador == "piedra" and maquina == "tijera") or
+        (jugador == "papel" and maquina == "piedra") or
+        (jugador == "tijera" and maquina == "papel")
+    ):
+        return "jugador"
+    else:
+        return "maquina"
+
+def jugar():
+    rondas_totales = obtener_rondas()
+    victorias_jugador = 0
+    victorias_maquina = 0
+
+    for ronda in range(1, rondas_totales + 1):
+        print(f"\n--- Ronda {ronda} de {rondas_totales} ---")
+
+        jugador = obtener_jugada_jugador()
+        maquina = obtener_jugada_maquina()
+
+        print(f"La máquina eligió: {maquina}")
+
+        resultado = determinar_ganador(jugador, maquina)
+
+        if resultado == "jugador":
+            print("🎉 ¡Ganaste esta ronda!")
+            victorias_jugador += 1
+        elif resultado == "maquina":
+            print("💻 La máquina ganó esta ronda.")
+            victorias_maquina += 1
+        else:
+            print("🤝 ¡Es un empate!")
+
+    # Resultado final
+    print("\n=== RESULTADO FINAL ===")
+    print(f"Jugador: {victorias_jugador} victorias")
+    print(f"Máquina: {victorias_maquina} victorias")
+
+    if victorias_jugador > victorias_maquina:
+        print("🏆 ¡Ganaste la partida!")
+    elif victorias_maquina > victorias_jugador:
+        print("💻 La máquina ganó la partida.")
+    else:
+        print("🤝 La partida terminó en empate.")
+
+if __name__ == "__main__":
+    jugar()
