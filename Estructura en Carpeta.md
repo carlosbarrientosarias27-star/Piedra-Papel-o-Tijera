@@ -1,4 +1,4 @@
-"""text
+```text
 PIEDRA-PAPEL-O-TIJERA/
 │
 ├── docs/
@@ -11,4 +11,4 @@ PIEDRA-PAPEL-O-TIJERA/
 ├── LICENSE
 ├── README.md
 └── requirements.txt
-"""
+  ´´´
