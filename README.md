@@ -1,82 +1,103 @@
-# Piedra-Papel-o-Tijera 
+# 🎮 Piedra, Papel o Tijera
 
-Un clásico juego de manos convertido en aplicación interactiva. Pon a prueba tu suerte y estrategia enfrentándote a la máquina en esta versión digital del juego más popular del mundo.
-
----
-
-## 📋 Descripción del Proyecto
-
-**Piedra, Papel o Tijera** es una aplicación de entretenimiento basada en el famoso juego de decisiones simultáneas. El jugador se enfrenta contra la computadora, que elige su opción de forma aleatoria. El objetivo es superar al rival seleccionando la opción ganadora según las reglas del juego.
-
-Este proyecto está desarrollado con el propósito de practicar lógica de programación, manejo de eventos e interacción con el usuario.
+Un juego clásico de **Piedra, Papel o Tijera** para la terminal, desarrollado en Python. Juega contra la computadora, lleva el control de tus victorias y consulta tu resumen al finalizar cada partida.
 
 ---
 
-## 🎮 ¿Cómo Jugar?
+## 📋 Descripción
 
-1. El jugador elige una de las tres opciones disponibles: **Piedra**, **Papel** o **Tijera**.
-2. La computadora genera su elección de forma aleatoria.
-3. Se comparan ambas elecciones y se determina un ganador según las reglas.
-4. Se muestra el resultado de la ronda: **¡Ganaste!**, **Perdiste** o **Empate**.
-5. El juego puede repetirse tantas veces como se desee.
+Este proyecto implementa el juego Piedra, Papel o Tijera en modo consola. El jugador elige su opción a través de un menú interactivo, la computadora realiza su elección de forma aleatoria, y el programa determina el ganador de cada ronda. Al terminar la partida se muestra un resumen con estadísticas detalladas.
 
 ---
 
-## 📜 Reglas del Juego
-
-| Tu elección | VS | Elección rival | Resultado     |
-|:-----------:|:--:|:--------------:|:-------------:|
-| 🪨 Piedra   | vs | ✂️ Tijera       | ✅ Ganas       |
-| 📄 Papel    | vs | 🪨 Piedra       | ✅ Ganas       |
-| ✂️ Tijera   | vs | 📄 Papel        | ✅ Ganas       |
-| 🪨 Piedra   | vs | 📄 Papel        | ❌ Pierdes     |
-| 📄 Papel    | vs | ✂️ Tijera       | ❌ Pierdes     |
-| ✂️ Tijera   | vs | 🪨 Piedra       | ❌ Pierdes     |
-| Cualquiera  | vs | Igual           | 🤝 Empate      |
-
-### Resumen de victorias:
-- 🪨 **Piedra** aplasta a ✂️ Tijera
-- 📄 **Papel** envuelve a 🪨 Piedra
-- ✂️ **Tijera** corta a 📄 Papel
-
----
-
-## 🚀 Características
-
-- Interfaz sencilla e intuitiva
-- Oponente controlado por la computadora con selección aleatoria
-- Registro de puntuación por sesión
-- Resultados mostrados en tiempo real
-
----
-
-## 🛠️ Tecnologías Utilizadas
-
-- **Lenguaje:** JavaScript / Python *(adaptar según tu stack)*
-- **Interfaz:** HTML + CSS / Consola
-- **Lógica:** Condicionales y generación de números aleatorios
-
----
-
-## 📁 Estructura del Proyecto
+## 🗂️ Estructura del proyecto
 
 ```
-piedra-papel-tijera/
-│
-├── index.html        # Interfaz principal
-├── style.css         # Estilos visuales
-├── app.js            # Lógica del juego
-└── README.md         # Documentación del proyecto
+juego.py   # Archivo principal del juego
+README.md  # Documentación del proyecto
 ```
+
+---
+
+## ⚙️ Requisitos
+
+- Python 3.14
+- No requiere dependencias externas (solo módulos de la librería estándar: `os`, `random`, `time`)
+
+---
+
+## 🚀 Cómo ejecutar
+
+```bash
+python juego.py
+```
+
+---
+
+## 📜 Reglas del juego
+
+| Elección | Vence a |
+|----------|---------|
+| 🪨 Piedra | ✂️ Tijera |
+| 📄 Papel  | 🪨 Piedra |
+| ✂️ Tijera | 📄 Papel  |
+
+- Si ambos jugadores eligen lo mismo, la ronda es un **empate**.
+- El jugador puede disputar tantas rondas como desee dentro de una partida.
+- Al salir, se muestra un **resumen final** con victorias, derrotas, empates y porcentaje de victorias.
+- Al terminar una partida, el jugador puede iniciar una nueva sin cerrar el programa.
+
+---
+
+## 🕹️ Cómo jugar
+
+1. Al iniciar, se muestra la pantalla de bienvenida con las reglas.
+2. En cada ronda, elige una opción del menú:
+   - `1` → 🪨 Piedra
+   - `2` → 📄 Papel
+   - `3` → ✂️ Tijera
+   - `0` → Salir y ver el resumen
+3. La computadora elige aleatoriamente su opción.
+4. Se muestra el resultado de la ronda.
+5. Al finalizar la partida, se presenta el resumen estadístico.
+6. Puedes elegir jugar otra partida o salir del programa.
+
+---
+
+## 📊 Resumen final
+
+Al concluir cada partida se muestran:
+
+- 🏆 Número de victorias
+- 💻 Número de derrotas
+- 🤝 Número de empates
+- 📈 Porcentaje de victorias
+- Resultado global: ganador, perdedor o empate general
+
+---
+
+## 🧩 Funciones principales
+
+| Función | Descripción |
+|---|---|
+| `mostrar_bienvenida()` | Muestra la pantalla inicial con las reglas |
+| `mostrar_menu()` | Despliega las opciones del juego |
+| `obtener_opcion_valida()` | Valida la entrada del usuario |
+| `obtener_eleccion_computadora()` | Genera la elección aleatoria de la computadora |
+| `determinar_ganador()` | Evalúa quién ganó la ronda |
+| `mostrar_resultado_ronda()` | Imprime el resultado de la ronda |
+| `mostrar_resumen()` | Muestra las estadísticas finales |
+| `jugar()` | Controla el flujo de una partida completa |
+| `main()` | Punto de entrada; permite múltiples partidas |
 
 ---
 
 ## 👤 Autor
 
-Desarrollado con ❤️ como proyecto de práctica.
+Desarrollado como proyecto de práctica en Python. 
 
----
+--- 
 
-## 📄 Licencia
+## License 
 
-Este proyecto está bajo la licencia [MIT](https://opensource.org/licenses/MIT). Puedes usarlo, modificarlo y distribuirlo libremente.
+Usa una Lincense MIT 
