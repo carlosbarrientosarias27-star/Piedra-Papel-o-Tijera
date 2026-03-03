@@ -1,6 +1,7 @@
 from config.opciones import OPCIONES
 from utils.helpers import limpiar_pantalla
 
+
 def mostrar_bienvenida():
     limpiar_pantalla()
     print("=" * 40)
@@ -13,10 +14,19 @@ def mostrar_bienvenida():
     print("=" * 40)
     input("\nPresiona ENTER para comenzar...")
 
+
 def mostrar_resultado_ronda(jugador, computadora, resultado):
+    # 🔹 (5) Limpiar antes de mostrar resultado
+    limpiar_pantalla()
+
     print("\n🎲 RESULTADO DE LA RONDA")
-    print(f"\n👤 Tú elegiste: {OPCIONES[jugador][1]} {OPCIONES[jugador][0]}")
-    print(f"💻 Computadora eligió: {OPCIONES[computadora][1]} {OPCIONES[computadora][0]}")
+
+    # 🔹 (1) Validación defensiva
+    nombre_jugador, emoji_jugador = OPCIONES.get(jugador, ("Desconocido", "❓"))
+    nombre_cpu, emoji_cpu = OPCIONES.get(computadora, ("Desconocido", "❓"))
+
+    print(f"\n👤 Tú elegiste: {emoji_jugador} {nombre_jugador}")
+    print(f"💻 Computadora eligió: {emoji_cpu} {nombre_cpu}")
 
     if resultado == "jugador":
         print("\n🏆 ¡Ganaste la ronda!")
@@ -25,11 +35,12 @@ def mostrar_resultado_ronda(jugador, computadora, resultado):
     else:
         print("\n🤝 ¡Es un empate!")
 
-def mostrar_resumen(victorias, derrotas, empates):
-    total = victorias + derrotas + empates
-    porcentaje = (victorias / total) * 100 if total > 0 else 0
+
+# 🔹 (2) Ahora recibe el porcentaje desde juego.py
+def mostrar_resumen(victorias, derrotas, empates, porcentaje):
 
     limpiar_pantalla()
+
     print("=" * 40)
     print("📊 RESUMEN FINAL DE LA PARTIDA")
     print("=" * 40)
@@ -37,4 +48,16 @@ def mostrar_resumen(victorias, derrotas, empates):
     print(f"💻 Derrotas: {derrotas}")
     print(f"🤝 Empates: {empates}")
     print(f"📈 Porcentaje de victorias: {porcentaje:.2f}%")
+
+    # 🔹 (3) Mensaje dinámico según rendimiento
+    if porcentaje >= 70:
+        print("\n🔥 ¡Eres un maestro del juego!")
+    elif porcentaje >= 40:
+        print("\n👍 Buen desempeño.")
+    else:
+        print("\n😅 Puedes mejorar. ¡Sigue practicando!")
+
     print("=" * 40)
+
+    # 🔹 (4) Pausa final
+    input("\nPresiona ENTER para salir...")

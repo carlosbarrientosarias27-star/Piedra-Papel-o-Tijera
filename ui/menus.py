@@ -5,25 +5,30 @@ def mostrar_menu():
     print("🎮  PIEDRA - PAPEL - TIJERA  🎮")
     print("=" * 40)
 
-    for clave, valor in OPCIONES.items():
-        print(f"{clave} - {valor[1]} {valor[0]}")
+    # Mostrar opciones ordenadas
+    for clave in sorted(OPCIONES.keys()):
+        nombre, emoji = OPCIONES[clave]
+        print(f"{clave} - {emoji} {nombre}")
 
     print("0 - Salir")
     print("=" * 40)
 
+
 def obtener_opcion_valida():
     while True:
-        opcion = input("👉 Elige una opción: ").strip()
+        try:
+            opcion = input("👉 Elige una opción: ").strip()
+        except KeyboardInterrupt:
+            # Si el usuario presiona Ctrl+C, salir limpiamente
+            return "0"
 
-        if opcion == "":
+        if not opcion:
             print("⚠️ No puedes dejar el campo vacío.")
-            continue
-
-        if opcion.startswith("-"):
-            print("⚠️ No se permiten números negativos.")
             continue
 
         if opcion in OPCIONES or opcion == "0":
             return opcion
 
-        print("⚠️ Opción inválida. Debes elegir 1, 2, 3 o 0.")
+        # Mensaje dinámico según opciones disponibles
+        opciones_validas = ", ".join(sorted(OPCIONES.keys()))
+        print(f"⚠️ Opción inválida. Debes elegir {opciones_validas} o 0.")

@@ -1,22 +1,25 @@
-import sys
-import os
-
-sys.path.append(os.path.dirname(os.path.abspath(__file__))) 
-
 from core.juego import jugar
 from ui.pantalla import mostrar_bienvenida
 
+
 def main():
-   
-    while True: 
-        mostrar_bienvenida 
-        jugar()
+    try:
+        while True:
+            mostrar_bienvenida()
+            jugar()
 
-        repetir = input("\n¿Quieres jugar otra partida? (s/n): ").strip().lower()
+            while True:
+                repetir = input("\n¿Quieres jugar otra partida? (s/n): ").strip().lower()
+                if repetir in ("s", "n"):
+                    break
+                print("⚠️ Debes escribir 's' o 'n'.")
 
-        if repetir != "s":
-            print("\n👋 ¡Gracias por jugar!")
-            break
+            if repetir == "n":
+                print("\n👋 ¡Gracias por jugar!")
+                break
+
+    except KeyboardInterrupt:
+        print("\n\n👋 Juego cerrado por el usuario.")
 
 
 if __name__ == "__main__":

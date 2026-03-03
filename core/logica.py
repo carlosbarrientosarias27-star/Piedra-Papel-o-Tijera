@@ -5,6 +5,9 @@ def obtener_eleccion_computadora():
     return random.choice(list(OPCIONES.keys()))
 
 def determinar_ganador(jugador, computadora):
+    if jugador not in OPCIONES or computadora not in OPCIONES:
+        raise ValueError("Elección inválida")
+
     if jugador == computadora:
         return "empate"
 
