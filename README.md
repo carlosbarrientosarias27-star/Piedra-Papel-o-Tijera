@@ -13,8 +13,51 @@ Este proyecto implementa el juego Piedra, Papel o Tijera en modo consola. El jug
 ## 🗂️ Estructura del proyecto
 
 ```
-juego.py   # Archivo principal del juego
-README.md  # Documentación del proyecto
+PIEDRA-PAPEL-O-TIJERA/
+├── .gitignore               # Archivos y carpetas ignorados por Git
+├── LICENSE                  # Licencia del proyecto
+├── main.py                  # Archivo principal que ejecuta el juego
+├── README.md                # Documentación del proyecto
+├── requirements.txt         # Dependencias del proyecto
+│
+├── config/                  # Configuración del juego
+│   ├── __init__.py          # Hace que la carpeta sea un paquete
+│   └── opciones.py          # Definición de las opciones (Piedra, Papel, etc.)
+│
+├── core/                    # Lógica central del negocio
+│   ├── __init__.py          #
+│   ├── juego.py             # Flujo principal de la partida
+│   └── logica.py            # Reglas para determinar ganadores
+│
+├── ui/                      # Interfaz de Usuario (Consola)
+│   ├── __init__.py          #
+│   ├── menus.py             # Gestión de menús de selección
+│   └── pantalla.py          # Visualización de textos y bienvenida
+│
+├── utils/                   # Herramientas auxiliares
+│   ├── __init__.py          #
+│   └── helpers.py           # Funciones de apoyo (ej: limpiar pantalla)
+│
+├── test/                    # Suite de Pruebas Unitarias
+│   ├── __init__.py          #
+│   ├── test_main.py         # Pruebas para el punto de entrada
+│   ├── config/              # Tests de configuración
+│   │   ├── __init__.py      #
+│   │   └── test_opciones.py #
+│   ├── core/                # Tests de la lógica central
+│   │   ├── __init__.py      #
+│   │   ├── test_juego.py    #
+│   │   └── test_logica.py   #
+│   ├── ui/                  # Tests de interfaz
+│   │   ├── __init__.py      #
+│   │   ├── test_menus.py    #
+│   │   └── test_pantalla.py #
+│   └── utils/               # Tests de utilidades
+│       ├── __init__.py      #
+│       └── test_helpers.py  #
+│
+├── docs/                    # Documentación adicional
+└── .qodo/                   # Archivos de configuración de herramientas (AI/IDE)
 ```
 
 ---
