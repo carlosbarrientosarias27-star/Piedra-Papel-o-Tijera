@@ -33,4 +33,4 @@ def determinar_ganador(usuario, pc):
     if reglas[usuario] == pc:
         return "Victoria"
     else:
-        return "Derrota"
+        return "Derrota" 
