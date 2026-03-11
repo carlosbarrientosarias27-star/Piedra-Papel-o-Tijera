@@ -1,37 +1,38 @@
+import unittest
+from unittest.mock import patch
 import sys
 import os
 
-# Añade la carpeta raíz al path de búsqueda de Python
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+# Aseguramos que Python encuentre la carpeta 'src'
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
-import unittest
-from config.opciones import OPCIONES
+from src.utilidades import limpiar_pantalla
 
-class TestConfigOpciones(unittest.TestCase):
+class TestUtilidades(unittest.TestCase):
 
-    def test_estructura_diccionario(self):
-        """Verifica que OPCIONES sea un diccionario y tenga 3 elementos."""
-        self.assertIsInstance(OPCIONES, dict)
-        self.assertEqual(len(OPCIONES), 3)
+    @patch('platform.system')
+    @patch('os.system')
+    def test_limpiar_pantalla_windows(self, mock_os_system, mock_platform):
+        """Verifica que en Windows se ejecute el comando 'cls'"""
+        # Simulamos que el sistema operativo es Windows
+        mock_platform.return_value = "Windows"
+        
+        limpiar_pantalla()
+        
+        # Verificamos que os.system haya sido llamado con 'cls'
+        mock_os_system.assert_called_once_with('cls')
 
-    def test_claves_validas(self):
-        """Verifica que las claves sean las esperadas ('1', '2', '3')."""
-        claves_esperadas = ["1", "2", "3"]
-        self.assertListEqual(list(OPCIONES.keys()), claves_esperadas)
+    @patch('platform.system')
+    @patch('os.system')
+    def test_limpiar_pantalla_unix(self, mock_os_system, mock_platform):
+        """Verifica que en Linux/macOS se ejecute el comando 'clear'"""
+        # Simulamos que el sistema operativo es Linux
+        mock_platform.return_value = "Linux"
+        
+        limpiar_pantalla()
+        
+        # Verificamos que os.system haya sido llamado con 'clear'
+        mock_os_system.assert_called_once_with('clear')
 
-    def test_contenido_valores(self):
-        """Verifica que cada valor sea una tupla con (Nombre, Emoji)."""
-        for clave, valor in OPCIONES.items():
-            self.assertIsInstance(valor, tuple)
-            self.assertEqual(len(valor), 2)
-            # Verifica que el primer elemento sea un string (Piedra, Papel o Tijera)
-            self.assertIsInstance(valor[0], str)
-
-    def test_valores_especificos(self):
-        """Prueba un valor específico para asegurar la integridad de los datos."""
-        self.assertEqual(OPCIONES["1"], ("Piedra", "🪨"))
-        self.assertEqual(OPCIONES["2"], ("Papel", "📄"))
-        self.assertEqual(OPCIONES["3"], ("Tijera", "✂️"))
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
