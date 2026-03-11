@@ -1,3 +1,3 @@
-# Proyecto de Prueba de Generador_Contraseñas_Seguras
+# Proyecto de Prueba de Piedra_Papel_Tijera
 
-En el archivo generador.py tengo todo el código para luego organizarlo separando reponsabilidades (SRP) en diferentes archivos y carpetas. Luego estructurando el proyecto en carpetas.
+En el archivo juego.py tengo todo el código para luego organizarlo separando reponsabilidades (SRP) en diferentes archivos y carpetas. Luego estructurando el proyecto en carpetas.
