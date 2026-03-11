@@ -1,2 +1,2 @@
-# Este proyecto utiliza únicamente la librería estándar de Python.
-# No requiere dependencias externas.
+sin dependencias externas 
+solo stdlib
