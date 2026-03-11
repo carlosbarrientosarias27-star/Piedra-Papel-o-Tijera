@@ -1,5 +1,12 @@
 def obtener_eleccion_usuario():
-    """Captura y valida la entrada del usuario."""
+    """Captura y valida la entrada del usuario a través de la consola.
+
+    Muestra un menú con las opciones (Piedra, Papel, Tijera) y asegura 
+    que el usuario introduzca un número válido entre 1 y 3.
+
+    Returns:
+        str: La jugada elegida ("Piedra", "Papel" o "Tijera").
+    """
     while True:
         print("\nElige tu jugada:")
         print("1. 🪨 Piedra")
@@ -16,7 +23,16 @@ def obtener_eleccion_usuario():
             print("⚠️ Entrada no válida. Introduce un número entero.")
 
 def mostrar_estadisticas(v, d, e):
-    """Muestra el resumen final y el porcentaje de victorias."""
+    """Muestra el resumen final de la partida y el rendimiento del jugador.
+
+    Calcula el porcentaje de victorias y determina si el jugador ganó, 
+    perdió o empató el cómputo global de las rondas.
+
+    Args:
+        v (int): Número total de victorias.
+        d (int): Número total de derrotas.
+        e (int): Número total de empates.
+    """
     total = v + d + e
     porcentaje = (v / total * 100) if total > 0 else 0
     

@@ -1,9 +1,16 @@
 from src.utilidades import limpiar_pantalla 
-from src.logica import obtener_eleccion_computadora,determinar_ganador
-from src.interfaz import obtener_eleccion_usuario,mostrar_estadisticas
+from src.logica import obtener_eleccion_computadora, determinar_ganador
+from src.interfaz import obtener_eleccion_usuario, mostrar_estadisticas
 
 def jugar():
-    """Bucle principal que gestiona las rondas y el estado del juego."""
+    """Gestiona el flujo principal de una partida completa.
+
+    Se encarga de:
+    1. Solicitar el número de rondas.
+    2. Ejecutar el bucle de juego llamando a la lógica y la interfaz.
+    3. Mantener el contador de puntos (marcador).
+    4. Llamar a la visualización de estadísticas finales.
+    """
     limpiar_pantalla()
     print("🎮 BIENVENIDO A PIEDRA, PAPEL O TIJERA")
     
@@ -16,7 +23,6 @@ def jugar():
         except ValueError:
             print("⚠️ Entrada no válida.")
 
-        # Marcadores
     victorias, derrotas, empates = 0, 0, 0
 
     for r in range(1, rondas_totales + 1):
@@ -45,6 +51,7 @@ def jugar():
     mostrar_estadisticas(victorias, derrotas, empates)
 
 if __name__ == "__main__":
+    """Punto de entrada del script. Ejecuta el juego y pregunta si se desea reanudar."""
     while True:
         jugar()
         jugar_de_nuevo = input("\n¿Quieres jugar otra partida? (s/n): ").lower()
