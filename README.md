@@ -4,7 +4,7 @@ Este repositorio contiene dos proyectos relacionados con el juego **Piedra, Pape
 
 ---
 
-## 📁 Estructura del Repositorio
+# 📁 Estructura del Repositorio
 
 ```
 .
@@ -40,11 +40,11 @@ Este repositorio contiene dos proyectos relacionados con el juego **Piedra, Pape
 
 ---
 
-## 🪨📄✂️ Proyecto Principal — `Piedra_Papel_Tijera`
+# 🪨📄✂️ Proyecto Principal — `Piedra_Papel_Tijera`
 
 Implementación completa del juego Piedra, Papel o Tijera con separación de responsabilidades, cobertura de tests y documentación técnica.
 
-### Descripción
+## Descripción
 
 El proyecto sigue una arquitectura modular dividida en tres capas principales:
 
@@ -55,23 +55,18 @@ El proyecto sigue una arquitectura modular dividida en tres capas principales:
 | Utilidades | `src/utilidades.py` | Funciones auxiliares y helpers |
 | Principal | `main.py` | Punto de entrada de la aplicación |
 
-### Requisitos
 
-```bash
-pip install -r requirements.txt
+## Ejecución
+
 ```
-
-### Ejecución
-
-```bash
 python main.py
 ```
 
-### Tests
+## Tests
 
 El proyecto incluye tests unitarios para cada módulo:
 
-```bash
+```
 # Ejecutar todos los tests
 python -m pytest test/
 
@@ -81,36 +76,32 @@ python -m pytest test/src/test_interfaz.py
 python -m pytest test/src/test_utilidades.py
 ```
 
-### Documentación
+## Documentación
 
 - [`docs/asistencia_ia.md`](Piedra_Papel_Tijera/docs/asistencia_ia.md) — Descripción del uso de IA durante el desarrollo.
 - [`docs/caso edge.md`](Piedra_Papel_Tijera/docs/caso%20edge.md) — Casos límite identificados y cómo se manejan.
 
 ---
 
-## 🧪 Proyecto de Prueba — `Proyecto de Prueba`
+# 🧪 Proyecto de Prueba — `Proyecto de Prueba`
 
 Prototipo inicial o prueba de concepto del juego, con una implementación simplificada en un único archivo.
 
-### Descripción
+## Descripción
 
 Versión reducida del juego contenida en `juego.py`, orientada a explorar la lógica básica antes de la implementación modular del proyecto principal.
 
-### Ejecución
+## Ejecución
 
-```bash
+```
 cd "Proyecto de Prueba"
 python juego.py
 ```
 
 ---
 
-## ⚖️ Licencia
+# ⚖️ Licencia
 
-Este proyecto se distribuye bajo los términos de la licencia incluida en el archivo [`LICENSE`](Piedra_Papel_Tijera/LICENSE).
+Este proyecto se distribuye bajo los términos de la licencia incluida en el archivo [`LICENSE`](Piedra_Papel_Tijera/LICENSE MIT).
 
 ---
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor, abre un *issue* o un *pull request* describiendo los cambios propuestos.
