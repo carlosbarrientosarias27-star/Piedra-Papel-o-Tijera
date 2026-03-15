@@ -1,38 +1,36 @@
-# 🎮 Piedra, Papel o Tijera — Repositorio Unificado
+# 🪨📄✂️ Piedra, Papel o Tijera — Suite de Proyectos
 
-Este repositorio contiene dos proyectos relacionados con el juego **Piedra, Papel o Tijera**: una implementación completa con arquitectura modular (`Piedra_Papel_Tijera`) y un proyecto de prueba de concepto (`Proyecto de Prueba`).
+Repositorio que agrupa dos proyectos relacionados con el clásico juego **Piedra, Papel o Tijera**, desarrollados en Python: una implementación completa con arquitectura modular y su correspondiente proyecto de prueba independiente.
 
 ---
 
 # 📁 Estructura del Repositorio
 
 ```
-.
-├── Piedra_Papel_Tijera/        # Proyecto principal
+├── Piedra_Papel_Tijera/
 │   ├── docs/
 │   │   ├── asistencia_ia.md
-│   │   └── caso edge.md
+│   │   └── caso_edge.md
 │   ├── src/
 │   │   ├── __init__.py
 │   │   ├── interfaz.py
 │   │   ├── logica.py
 │   │   └── utilidades.py
 │   ├── test/
-│   │   ├── src/
-│   │   │   ├── __init__.py
-│   │   │   ├── test_interfaz.py
-│   │   │   ├── test_logica.py
-│   │   │   └── test_utilidades.py
-│   │   ├── __init__.py
-│   │   └── test_main.py
+│   │   └── src/
+│   │       ├── __init__.py
+│   │       ├── test_interfaz.py
+│   │       ├── test_logica.py
+│   │       └── test_utilidades.py
 │   ├── __init__.py
+│   ├── test_main.py
 │   ├── .gitignore
 │   ├── LICENSE
 │   ├── main.py
 │   ├── README.md
 │   └── requirements.txt
 │
-└── Proyecto de Prueba/         # Proyecto de prueba de concepto
+└── Proyecto de Prueba/
     ├── __init__.py
     ├── juego.py
     └── Readme.md
@@ -40,58 +38,81 @@ Este repositorio contiene dos proyectos relacionados con el juego **Piedra, Pape
 
 ---
 
-# 🪨📄✂️ Proyecto Principal — `Piedra_Papel_Tijera`
+# 🎮 Proyecto 1 — Piedra_Papel_Tijera
 
-Implementación completa del juego Piedra, Papel o Tijera con separación de responsabilidades, cobertura de tests y documentación técnica.
+Implementación principal del juego con una arquitectura modular bien definida, documentación técnica y suite de pruebas unitarias.
 
-## Descripción
+## ✨ Características
 
-El proyecto sigue una arquitectura modular dividida en tres capas principales:
+- Separación de responsabilidades en capas: lógica, interfaz y utilidades.
+- Documentación de asistencia con IA y casos edge.
+- Suite de tests unitarios para cada módulo.
+- Código limpio, mantenible y extensible.
 
-| Módulo | Archivo | Responsabilidad |
-|---|---|---|
-| Lógica | `src/logica.py` | Reglas del juego, determinación del ganador |
-| Interfaz | `src/interfaz.py` | Interacción con el usuario (entrada/salida) |
-| Utilidades | `src/utilidades.py` | Funciones auxiliares y helpers |
-| Principal | `main.py` | Punto de entrada de la aplicación |
+## 📦 Módulos (`src/`)
 
+| Archivo | Descripción |
+|---|---|
+| `logica.py` | Reglas del juego: determina el ganador según la elección de cada jugador. |
+| `interfaz.py` | Gestión de la interacción con el usuario (entrada/salida). |
+| `utilidades.py` | Funciones auxiliares reutilizables (validaciones, formateo, etc.). |
+| `main.py` | Punto de entrada principal de la aplicación. |
 
-## Ejecución
+## 🧪 Tests (`test/src/`)
+
+| Archivo | Descripción |
+|---|---|
+| `test_logica.py` | Pruebas unitarias de las reglas del juego. |
+| `test_interfaz.py` | Pruebas de la capa de interfaz. |
+| `test_utilidades.py` | Pruebas de las funciones auxiliares. |
+| `test_main.py` | Pruebas de integración del flujo principal. |
+
+## 📄 Documentación (`docs/`)
+
+- **`asistencia_ia.md`** — Notas y apoyo generado con asistencia de inteligencia artificial.
+- **`caso_edge.md`** — Documentación de casos borde identificados y su tratamiento.
+
+## 🚀 Instalación y Ejecución
 
 ```
+# Clonar el repositorio
+git clone <url-del-repositorio>
+cd Piedra_Papel_Tijera
+
+# Ejecutar el juego
 python main.py
 ```
 
-## Tests
-
-El proyecto incluye tests unitarios para cada módulo:
+## 🧪 Ejecutar Tests
 
 ```
-# Ejecutar todos los tests
-python -m pytest test/
+# Desde la raíz del proyecto
+python -m pytest test/src/
 
-# Ejecutar tests de un módulo específico
+# O ejecutar un test específico
 python -m pytest test/src/test_logica.py
-python -m pytest test/src/test_interfaz.py
-python -m pytest test/src/test_utilidades.py
 ```
-
-## Documentación
-
-- [`docs/asistencia_ia.md`](Piedra_Papel_Tijera/docs/asistencia_ia.md) — Descripción del uso de IA durante el desarrollo.
-- [`docs/caso edge.md`](Piedra_Papel_Tijera/docs/caso%20edge.md) — Casos límite identificados y cómo se manejan.
 
 ---
 
-# 🧪 Proyecto de Prueba — `Proyecto de Prueba`
+# 🧩 Proyecto 2 — Proyecto de Prueba
 
-Prototipo inicial o prueba de concepto del juego, con una implementación simplificada en un único archivo.
+Proyecto independiente y simplificado que sirve como entorno de prueba o prototipo rápido del juego.
 
-## Descripción
+## ✨ Características
 
-Versión reducida del juego contenida en `juego.py`, orientada a explorar la lógica básica antes de la implementación modular del proyecto principal.
+- Implementación ligera y directa del juego en un único archivo.
+- Ideal para experimentar con la lógica central sin dependencias adicionales.
 
-## Ejecución
+## 📦 Archivos
+
+| Archivo | Descripción |
+|---|---|
+| `juego.py` | Implementación autónoma del juego Piedra, Papel o Tijera. |
+| `__init__.py` | Inicialización del módulo. |
+| `Readme.md` | Documentación específica del proyecto de prueba. |
+
+## 🚀 Ejecución
 
 ```
 cd "Proyecto de Prueba"
@@ -100,8 +121,15 @@ python juego.py
 
 ---
 
-# ⚖️ Licencia
+# 🛠️ Tecnologías
 
-Este proyecto se distribuye bajo los términos de la licencia incluida en el archivo [`LICENSE`](Piedra_Papel_Tijera/LICENSE MIT).
+- **Lenguaje:** Python 3.14
+
+
+---
+
+# 📜 Licencia
+
+Este proyecto se distribuye bajo los términos indicados en el archivo [`LICENSE`](Piedra_Papel_Tijera/LICENSE MIT).
 
 ---
